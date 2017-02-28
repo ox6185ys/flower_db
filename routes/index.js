@@ -30,4 +30,18 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
+router.get('/details/:flower', function(req, res, next){
+  req.db.collection('flowers').findOne({'name' : req.params.flower}, function(err, doc) {
+    if (err) {
+      return next(err);  // 500 error
+    }
+    if (!doc) {
+      return next();  // Creates a 404 error
+    }
+    return res.render('flower_details', { 'flower' : doc });
+  });
+});
+
+
 module.exports = router;
