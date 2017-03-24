@@ -22,8 +22,9 @@ function addInput(element) {
   element.append(input);
   $('#instructions').text('Press Enter to save, Esc to quit');
 
+  // Ajax is called from flower_details.hbs
   $('#newcolor').keypress(function (event) {
-    if (event.which == 13) {     // Keycode for Enter
+    if (event.which == 13) {     // 13 is the keycode for Enter
       var color = $(this).val();
       var name = $('#name').text();
       var data = { "color": color, "name": name };

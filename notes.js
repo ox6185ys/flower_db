@@ -8,6 +8,6 @@ db.flowers.remove(
      justOne: true,
         writeConcern: deleteButtonPressed
     }
-)
+);
 
 db.flowers.drop(true);
